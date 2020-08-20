@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "af3c257e-b44d-4346-9cb2-ebe9203fcd73",
+		"name": "neoframework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取access-token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "{{gatewayUrl}}/auth/oauth/token?grant_type=password&username=admin&password=rKu1/348LvKp0rsVC06eCA%3D%3D&scope=server",
+					"host": [
+						"{{gatewayUrl}}"
+					],
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "rKu1/348LvKp0rsVC06eCA%3D%3D",
+							"description": "rKu1/348LvKp0rsVC06eCA=="
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8090/index.html",
+							"description": "rKu1/348LvKp0rsVC06eCA%3D%3D",
+							"disabled": true
+						},
+						{
+							"key": "scope",
+							"value": "server"
+						},
+						{
+							"key": "username",
+							"value": "test01",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "EFyCBSAsQ9VzGxwVLToypA%3D%3D",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刷新token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWNtZTphY21lc2VjcmV0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gatewayUrl}}/auth/oauth/token?grant_type=refresh_token&refresh_token=0c279165-9f00-465d-a394-b5dfd309bfc1",
+					"host": [
+						"{{gatewayUrl}}"
+					],
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						},
+						{
+							"key": "machineId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "refresh_token",
+							"value": "0c279165-9f00-465d-a394-b5dfd309bfc1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取用户列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "rKu1/348LvKp0rsVC06eCA%3D%3D",
+							"description": "rKu1/348LvKp0rsVC06eCA==",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8090/index.html",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "scope",
+							"value": "server",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{gatewayUrl}}/admin/user/page?",
+					"host": [
+						"{{gatewayUrl}}"
+					],
+					"path": [
+						"admin",
+						"user",
+						"page"
+					],
+					"query": [
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8090/index.html",
+							"description": "0lvm/XtKVxWaGqpmJKcWcQ%3D%3D",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取当前用户全部信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gatewayUrl}}/admin/user/info?",
+					"host": [
+						"{{gatewayUrl}}"
+					],
+					"path": [
+						"admin",
+						"user",
+						"info"
+					],
+					"query": [
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8090/index.html",
+							"description": "0lvm/XtKVxWaGqpmJKcWcQ%3D%3D",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取某用户信息Inner",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gatewayUrl}}/admin/user/info/test01?",
+					"host": [
+						"{{gatewayUrl}}"
+					],
+					"path": [
+						"admin",
+						"user",
+						"info",
+						"test01"
+					],
+					"query": [
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8090/index.html",
+							"description": "0lvm/XtKVxWaGqpmJKcWcQ%3D%3D",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(sunfile)Demo获取当前用户",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userName",
+							"value": "XW180051",
+							"description": "cssh001 ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "235689",
+							"description": "2f9d7e49-1926-4634-b15e-b66a682c4f68",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "a2cf6f42-4970-4f9d-b1f3-9a15ed8dcf33",
+							"description": "XW180051 235689",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"description": "13711995143 968631",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlSunFile}}/demo/user/getCurrentUser?",
+					"host": [
+						"{{baseUrlSunFile}}"
+					],
+					"path": [
+						"demo",
+						"user",
+						"getCurrentUser"
+					],
+					"query": [
+						{
+							"key": "bucket",
+							"value": "ptxres01",
+							"disabled": true
+						},
+						{
+							"key": "dir",
+							"value": "111333",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(sunfile)Demo获取当前用户Another",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userName",
+							"value": "XW180051",
+							"description": "cssh001 ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "235689",
+							"description": "2f9d7e49-1926-4634-b15e-b66a682c4f68",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "a2cf6f42-4970-4f9d-b1f3-9a15ed8dcf33",
+							"description": "XW180051 235689",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"description": "13711995143 968631",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlSunFile}}/demo/user/getCurrentUserAnother?",
+					"host": [
+						"{{baseUrlSunFile}}"
+					],
+					"path": [
+						"demo",
+						"user",
+						"getCurrentUserAnother"
+					],
+					"query": [
+						{
+							"key": "bucket",
+							"value": "ptxres01",
+							"disabled": true
+						},
+						{
+							"key": "dir",
+							"value": "111333",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

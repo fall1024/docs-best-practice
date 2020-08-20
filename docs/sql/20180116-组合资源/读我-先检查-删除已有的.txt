@@ -1,0 +1,23 @@
+
+-- @author ahming
+
+-- 这整个目录资源适宜导入到本地，并且 attr_item attr_value 等自增ID原样导入。生产服仔细处理。
+
+-- 检查是否有相关
+
+SELECT * FROM `tc_resource` r WHERE r.id IN ('6e2d1db223784caa8d2222fac316bb03','63f5ca3fd1cc4cf78851633a7840b666','3a98eafabba24e79b142dc97184a85ac',
+'7bd61578e2044832943923ea23e50bfb','abc205d7c2fa4fd2bf0ae7ac4ad65123','abc18ab6040b4508a3ac9717c92b2123','abc74bb9b87544fc90db6d4a9fbc6123','','','','','','','')
+
+-- 一些查询语句
+
+SELECT * FROM tc_attr_item ai
+ORDER BY ai.`create_date` DESC;
+
+SELECT * FROM tc_attr_value av
+ORDER BY av.`create_date` DESC;
+
+SELECT * FROM tc_resource r
+ORDER BY r.`create_date` DESC;
+
+select * from sys_dict d
+order by d.`create_date` DESC;
