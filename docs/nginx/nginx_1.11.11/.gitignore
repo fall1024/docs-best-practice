@@ -1,0 +1,4 @@
+### common ###
+temp/*
+logs/*
+!.gitkeep

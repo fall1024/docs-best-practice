@@ -1,0 +1,18 @@
+server {
+ 		listen	80 ;
+		server_name  we7-php.test;
+		root D:/develop/projects-mingt/docs-best-practice/docs/nginx/www/we7;
+
+        location / {
+            index inde.php index.html index.htm;
+        }
+
+        location ~ \.php$ {
+            root D:/develop/projects-mingt/docs-best-practice/docs/nginx/www/we7;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+}
