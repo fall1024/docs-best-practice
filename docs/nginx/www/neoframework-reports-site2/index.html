@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Apache Maven Doxia Site Renderer 1.9.2" />
+    <title>neo-site2</title>
+  </head>
+  <body class="composite">
+    这是使用 location + alias 配置的子站点。
+
+    <pre>
+        location /neo-site2 {
+          alias ../www/neoframework-reports-site2/;
+          index index.html index.htm;
+          add_header Cache-Control no-store;
+          expires -1;
+        }
+    </pre>
+  </body>
+</html>
