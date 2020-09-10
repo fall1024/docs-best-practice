@@ -16,7 +16,6 @@
 </pre>
 
 ## 配置说明及测试访问路径
-
 只需要在 \docs\nginx\nginx_1.11.11\conf\vhosts 下新增或修改虚拟站点。为了尽量接近生产环境，建议设置好 server_name 为本地测试域名，并在 hosts 解释这些域名到 127.0.0.1 。
 
 ```
@@ -28,7 +27,7 @@ server {
     root ../www/neoframework-reports-site;
 ```
 
-hosts
+hosts（/etc/hosts 或 c:\Windows\system32\drivers\etc\hosts）
 ```
 127.0.0.1 neoframework-reports-site.local.cn
 
@@ -46,7 +45,7 @@ hosts
 
 访问路径则为： ```http://neoframework-reports-site.local.cn/```
 
-目前 vhosts 下有以下站点：
+### 目前 vhosts 下有以下站点：
 
 1. neoframework-reports-site.conf
 
@@ -72,6 +71,42 @@ hosts
 * http://test-h5.prod-site-demo.cn
 * http://ptx-m.prod-site-demo.cn
 * http://test-s.prod-site-demo.cn
+
+4. neoframework-wsdemo.localhost-spring-websocket-demo.conf
+
+一个 Spring Cloud 多模块微服务，其中包含一个 WebSocket 模块多实例部署的配置。
+
+```
+# Websocket 模块多实例部署，本地测试
+upstream lb_api {
+        # 默认 round_robin ，其他 ip_hash, hash, least_conn 等;
+        # ip_hash; # 不符合本地测试
+        hash $remote_addr;
+        server 127.0.0.1:8082;
+        server 127.0.0.1:8083;
+}
+
+server {
+        listen       80;
+        server_name  wsdemo.localhost, localhost;
+
+        # websocket实例
+        location ^~ /api/ {
+                # proxy_pass http://127.0.0.1:8082/api/;
+                proxy_pass http://lb_api/api/;
+
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                keepalive_requests 500;
+        }
+}
+```
+
+这个配置的相关项目：
+
+* [spring-websocket-example](https://github.com/mingt/spring-websocket-example) Spring websocket 完整例子，参考、指引
+* [neoframework-cloud-demo](https://github.com/mingt/neoframework-cloud-demo) 演示 Spring Cloud 基础功能和若干增强，如注册中心，配置中心， 认证中心等
 
 ## 其他
 
