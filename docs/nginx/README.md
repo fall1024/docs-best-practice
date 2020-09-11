@@ -47,18 +47,18 @@ hosts（/etc/hosts 或 c:\Windows\system32\drivers\etc\hosts）
 
 ### 目前 vhosts 下有以下站点：
 
-1. neoframework-reports-site.conf
+#### 1. neoframework-reports-site.conf
 
 静态 html 站点。一个默认站点和一个子站点。
 
 * http://neoframework-reports-site.local.cn/
 * http://neoframework-reports-site.local.cn/neo-site2/
 
-2. image-server.conf
+#### 2. image-server.conf
 
 简单的，反向代理到一个提供静态资源服务的应用。
 
-3. prod-site-demo.cn.conf
+#### 3. prod-site-demo.cn.conf
 
 接近生产环境、反向代理到基于 docker 的一组相关服务应用，也有静态站点，静态图片服务。部署在域名 prod-site-demo.cn 下。
 
@@ -72,7 +72,7 @@ hosts（/etc/hosts 或 c:\Windows\system32\drivers\etc\hosts）
 * http://ptx-m.prod-site-demo.cn
 * http://test-s.prod-site-demo.cn
 
-4. neoframework-wsdemo.localhost-spring-websocket-demo.conf
+#### 4. neoframework-wsdemo.localhost-spring-websocket-demo.conf
 
 一个 Spring Cloud 多模块微服务，其中包含一个 WebSocket 模块多实例部署的配置。
 
